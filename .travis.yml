@@ -1,13 +1,12 @@
 os: focal
-arch: 
-- s390x
-- ppc64le
 
 env:
   - FOO=mon
   - FOO=tana
 
-script: echo $Montana tests Travis
+script: 
+uname -r 
+echo $Montana tests Travis
 
 stages:
   - Compile
@@ -17,10 +16,14 @@ stages:
 jobs:
   include:
     - stage: Compile
-      script: echo Compile
+      script: 
+      uname -r 
+      echo Compile
       env: &env
         - FOO=
         - BAR=
     - stage: Deploy
-      script: echo Deploy
+      script: 
+      uname -r
+      echo Deploy
       <<: *env
