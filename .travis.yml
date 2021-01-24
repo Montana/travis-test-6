@@ -1,0 +1,23 @@
+os: focal
+
+env:
+  - FOO=mon
+  - FOO=tana
+
+script: echo $Montana tests Travis
+
+stages:
+  - Compile
+  - Test
+  - Deploy
+
+jobs:
+  include:
+    - stage: Compile
+      script: echo Compile
+      env: &env
+        - FOO=
+        - BAR=
+    - stage: Deploy
+      script: echo Deploy
+      <<: *env
