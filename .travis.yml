@@ -6,6 +6,24 @@ env:
 
 script: echo $Montana tests Travis
 
+services:
+  - docker
+  
+matrix:
+  fast_finish: true
+  include:
+     - name: "Multi arch test" 
+       os: linux
+       arch: 
+       - ppc64le
+       - s390x
+       language: cpp
+       compiler:
+       - gcc
+       - clang
+       env:
+        - LIB_PATH="/usr/bin/shared/x86_64/v1"
+
 stages:
   - Compile
   - Test
