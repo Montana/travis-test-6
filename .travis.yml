@@ -1,9 +1,7 @@
 os: focal
-jobs:
-  include:
-    - name: one
-    - name: two
-      if: $MON=tana
+arch: 
+- s390x
+- ppc64le
 
 env:
   - FOO=mon
