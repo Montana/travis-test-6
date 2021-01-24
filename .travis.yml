@@ -5,8 +5,8 @@ env:
   - FOO=tana
 
 script: 
-uname -r 
-echo $Montana tests Travis
+- uname -r 
+- echo $Montana tests Travis
 
 stages:
   - Compile
@@ -17,13 +17,13 @@ jobs:
   include:
     - stage: Compile
       script: 
-      uname -r 
-      echo Compile
+      - uname -r 
+      - echo Compile
       env: &env
         - FOO=
         - BAR=
     - stage: Deploy
       script: 
-      uname -r
-      echo Deploy
+      - uname -r
+      - echo Deploy
       <<: *env
